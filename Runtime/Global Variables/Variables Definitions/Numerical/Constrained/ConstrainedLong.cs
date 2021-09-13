@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Core.GlobalVariable
 {
     [CreateAssetMenu(fileName = "NewConstrainedLong", menuName = "Global Variables/Clamped/Long")]
-    public sealed class ConstrainedLong : GlobalNumber<long>
+    public sealed class ConstrainedLong : ClampNumber<long>
     {
         public override long ConstrianValue(long value, long min, long max)
         {
