@@ -14,10 +14,10 @@ namespace Core.GlobalVariable
         public new T Value
         {
             get => base.Value;
-            set => base.Value = ConstrianValue(value, min, max);
+            set => base.Value = ClampValue(value, min, max);
         }
 
-        public virtual T ConstrianValue(T value, T min, T max)
+        public virtual T ClampValue(T value, T min, T max)
         {
             throw new System.NotImplementedException();
         }

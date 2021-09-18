@@ -5,13 +5,11 @@ namespace Core.GlobalVariable
 {
     public abstract class GlobalVariable<T> : ScriptableObject where T : struct
     {
-        public override string ToString() => value.ToString();
-
         [SerializeField] private T startValue;
 
         private Action OnChange;
-
         private T value;
+
         public T Value
         {
             get => value;
@@ -28,6 +26,10 @@ namespace Core.GlobalVariable
         {
             value = startValue;
         }
+
+        public override string ToString() => value.ToString();
+        public override bool Equals(object other) => other is GlobalVariable<T> variable && variable.value.ToString() == value.ToString();
+        public override int GetHashCode() => base.GetHashCode();
     }
 }
 

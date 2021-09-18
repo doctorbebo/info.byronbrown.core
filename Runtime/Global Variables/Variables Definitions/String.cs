@@ -9,6 +9,7 @@ namespace Core.GlobalVariable
         [SerializeField] private string startValue;
 
         public override string ToString() => value;
+        public override bool Equals(object other) => other is String str && str.value == value;
 
         private Action OnChange;
 
