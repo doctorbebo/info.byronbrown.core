@@ -5,7 +5,7 @@ namespace Core.GlobalVariable
 {
     public abstract class GlobalVariable<T> : ScriptableObject where T : struct
     {
-        [SerializeField] private T startValue;
+        [SerializeField] private T startValue = default;
 
         private Action OnChange;
         private T value;

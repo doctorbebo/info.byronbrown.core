@@ -8,8 +8,8 @@ namespace Core.GlobalVariable
     /// <typeparam name="T">T must be a number (e.g. int, double)</typeparam>
     public abstract class ClampNumber<T> : GlobalVariable<T> where T : struct
     {
-        [SerializeField] private T min;
-        [SerializeField] private T max;
+        [SerializeField] private T min = default;
+        [SerializeField] private T max = default;
 
         public new T Value
         {

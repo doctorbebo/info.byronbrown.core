@@ -6,10 +6,11 @@ namespace Core.GlobalVariable
     [CreateAssetMenu(fileName = "NewString", menuName = "Global Variables/String")]
     public class String : ScriptableObject
     { 
-        [SerializeField] private string startValue;
+        [SerializeField] private string startValue = "";
 
         public override string ToString() => value;
         public override bool Equals(object other) => other is String str && str.value == value;
+        public override int GetHashCode() => base.GetHashCode();
 
         private Action OnChange;
 
