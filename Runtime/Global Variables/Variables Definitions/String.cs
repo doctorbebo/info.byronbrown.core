@@ -8,6 +8,8 @@ namespace Core.GlobalVariable
     { 
         [SerializeField] private string startValue;
 
+        public override string ToString() => value;
+
         private Action OnChange;
 
         private string value;

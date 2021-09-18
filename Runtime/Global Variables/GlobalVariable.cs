@@ -5,6 +5,8 @@ namespace Core.GlobalVariable
 {
     public abstract class GlobalVariable<T> : ScriptableObject where T : struct
     {
+        public override string ToString() => value.ToString();
+
         [SerializeField] private T startValue;
 
         private Action OnChange;
