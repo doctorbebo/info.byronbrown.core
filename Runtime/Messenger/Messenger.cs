@@ -60,6 +60,9 @@ namespace Core.Messenger
 
         private static void WriteDisplays()
         {
+            if (texts.Count <= 0)
+                Debug.LogError($"No Text Object to write to. Make sure TextMeshProUGui is active in scene and has messenger component attached.");
+
             foreach (var text in texts)
             {
                 text.text = message.Message;
