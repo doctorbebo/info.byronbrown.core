@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Core.GlobalVariable
+namespace Core.Global
 {
     public abstract class GlobalVariable<T> : ScriptableObject where T : struct
     {

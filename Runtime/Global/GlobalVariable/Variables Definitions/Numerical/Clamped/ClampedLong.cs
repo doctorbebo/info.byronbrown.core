@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.GlobalVariable
+namespace Core.Global
 {
     [CreateAssetMenu(fileName = "NewConstrainedLong", menuName = "Global Variables/Clamped/Long")]
     public sealed class ClampedLong : ClampNumber<long>

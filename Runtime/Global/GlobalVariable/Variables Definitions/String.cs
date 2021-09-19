@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Core.GlobalVariable
+namespace Core.Global
 {
     [CreateAssetMenu(fileName = "NewString", menuName = "Global Variables/String")]
     public class String : ScriptableObject

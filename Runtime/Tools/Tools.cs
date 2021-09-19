@@ -1,11 +1,8 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Core.Tools
 {
 
-    public class Tools : MonoBehaviour
-    {
-
-    }   
 
 }

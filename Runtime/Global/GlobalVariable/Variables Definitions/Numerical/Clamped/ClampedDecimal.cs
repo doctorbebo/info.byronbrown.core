@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.GlobalVariable
+namespace Core.Global
 {
     [CreateAssetMenu(fileName = "NewConstrainedDecimal", menuName = "Global Variables/Clamped/Decimal")]
     public sealed class ClampedDecimal : ClampNumber<decimal>

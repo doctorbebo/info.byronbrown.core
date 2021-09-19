@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.GlobalVariable
+namespace Core.Global
 {
     [CreateAssetMenu(fileName = "NewConstrainedInt", menuName = "Global Variables/Clamped/Int")]
     public sealed class ClampedInt : ClampNumber<int>

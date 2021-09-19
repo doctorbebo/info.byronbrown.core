@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.GlobalVariable
+namespace Core.Global
 {
     /// <summary>
     /// Forced variable "Value to be constrained
