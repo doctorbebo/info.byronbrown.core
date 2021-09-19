@@ -12,8 +12,11 @@ namespace Core.Editor
         {
             DrawDefaultInspector();
 
-
-            base.OnInspectorGUI();
+            GlobalEvent globalEvent = (GlobalEvent)target;
+            if(GUILayout.Button("Invoke Event"))
+            {
+                globalEvent.InvokeGlobalEvent();
+            }
         }
     }
 }

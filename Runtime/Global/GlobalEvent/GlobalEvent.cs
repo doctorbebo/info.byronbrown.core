@@ -8,8 +8,8 @@ namespace Core.Global
     [CreateAssetMenu(fileName = "NewGlobalEvent", menuName = "Global Event")]
     public class GlobalEvent : ScriptableObject
     {
-        public List<Action> actionEvents;
-        public List<UnityEvent> unityEvents;
+        private List<Action> actionEvents;
+        private List<UnityEvent> unityEvents;
 
         private void OnEnable()
         {

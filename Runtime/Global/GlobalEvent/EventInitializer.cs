@@ -8,9 +8,14 @@ namespace Core.Global
         [SerializeField] private GlobalEvent globalEvent;
         [SerializeField] private UnityEvent Event;
 
-        private void Start()
+        private void OnEnable()
         {
             globalEvent.Add(Event);
+        }
+
+        private void OnDisable()
+        {
+            globalEvent.Remove(Event);
         }
     }
 }
