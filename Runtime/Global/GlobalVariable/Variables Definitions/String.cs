@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Core.Global
 {
     [CreateAssetMenu(fileName = "NewString", menuName = "Global Variables/String")]
-    public class String : ScriptableObject
+    public class String : GlobalVariable
     { 
         [SerializeField] private string startValue = "";
 
@@ -25,8 +25,8 @@ namespace Core.Global
             }
         }
 
-        public void AddListener(Action action) => OnChange += action;
-        public void RemoveListener(Action action) => OnChange -= action;
+        public override void AddListener(Action action) => OnChange += action;
+        public override void RemoveListener(Action action) => OnChange -= action;
         private void OnEnable()
         {
             value = startValue;

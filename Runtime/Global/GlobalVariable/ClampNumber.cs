@@ -11,7 +11,7 @@ namespace Core.Global
         [SerializeField] private T min = default;
         [SerializeField] private T max = default;
 
-        public new T Value
+        public override T Value
         {
             get => base.Value;
             set => base.Value = ClampValue(value, min, max);
