@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Global
 {
-    [CreateAssetMenu(fileName = "NewConstrainedDecimal", menuName = "Global Variables/Clamped/Decimal")]
+    [CreateAssetMenu(fileName = "NewConstrainedDecimal", menuName = "Global/Variables/Clamped/Decimal")]
     public sealed class ClampedDecimal : ClampNumber<decimal>
     {
         public override decimal ClampValue(decimal value, decimal min, decimal max)

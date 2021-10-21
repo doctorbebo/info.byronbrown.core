@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Global
 {
-    [CreateAssetMenu(fileName = "NewConstrainedFloat", menuName = "Global Variables/Clamped/Float")]
+    [CreateAssetMenu(fileName = "NewConstrainedFloat", menuName = "Global/Variables/Clamped/Float")]
     public sealed class ClampedFloat : ClampNumber<float>
     {
         public override float ClampValue(float value, float min, float max)

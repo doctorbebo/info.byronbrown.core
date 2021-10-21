@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Core.Global
 {
-    [CreateAssetMenu(fileName = "NewGlobalEvent", menuName = "Global Event")]
+    [CreateAssetMenu(fileName = "NewGlobalEvent", menuName = "Global/Event")]
     public class GlobalEvent : ScriptableObject
     {
         private List<Action> actionEvents;

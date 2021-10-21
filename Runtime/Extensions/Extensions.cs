@@ -2,15 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Core.Messenger
+namespace Core
 {
     public static class Extensions
     {
-        public static void MessagePlayer(this string message)
-        {
-            MessageDisplay.QueueMessage(message);
-        }
-
         /// <summary>
         /// Returns the next index of the Collection and resets to index 0 if it exceeds Collection's length
         /// </summary>

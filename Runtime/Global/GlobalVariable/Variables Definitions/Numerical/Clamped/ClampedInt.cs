@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Global
 {
-    [CreateAssetMenu(fileName = "NewConstrainedInt", menuName = "Global Variables/Clamped/Int")]
+    [CreateAssetMenu(fileName = "NewConstrainedInt", menuName = "Global/Variables/Clamped/Int")]
     public sealed class ClampedInt : ClampNumber<int>
     {
         public override int ClampValue(int value, int min, int max)

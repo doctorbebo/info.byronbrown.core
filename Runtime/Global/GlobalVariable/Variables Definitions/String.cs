@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Global
 {
-    [CreateAssetMenu(fileName = "NewString", menuName = "Global Variables/String")]
+    [CreateAssetMenu(fileName = "NewString", menuName = "Global/Variables/String")]
     public class String : GlobalVariable
     { 
         [SerializeField] private string startValue = "";

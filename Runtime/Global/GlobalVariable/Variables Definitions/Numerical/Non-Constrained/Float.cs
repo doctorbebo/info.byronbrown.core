@@ -2,6 +2,6 @@ using UnityEngine;
 
 namespace Core.Global
 {
-    [CreateAssetMenu(fileName = "NewFloat", menuName = "Global Variables/UnClamped/Float")]
+    [CreateAssetMenu(fileName = "NewFloat", menuName = "Global/Variables/UnClamped/Float")]
     public class Float : GlobalVariable<float> { }
 }
