@@ -9,7 +9,7 @@
     "changelogUrl": "https://example.com/changelog.html",
     "licensesUrl": "https://example.com/licensing.html",
     "dependencies": {
-        "com.unity.TextMeshPro": "3.0.6"
+       
     },
     "keywords": [],
     "author": {
