@@ -4,26 +4,53 @@ using TMPro;
 
 namespace Core.Messenger
 {
-    public sealed class Messenger : MonoBehaviour
+    public sealed class MessageDisplay : MonoBehaviour
     {
-        #region Static Members
 
-        private static GlobalMessage message;
-        private static readonly Queue<GlobalMessage> messages = new Queue<GlobalMessage>();
+        private static float duration  = 3f;
+        private static float timer;
+        public static float Duration
+        {
+            get => duration;
+            set
+            {
+                value = Mathf.Abs(value);
+                value = Mathf.Clamp(value, 0f, 60f);
+                duration = value;
+            }
+        }
+
+        private static string message;
+        private static readonly Queue<string> messages = new Queue<string>();
         private static List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
         private static int count = 0;
+
+        public static void QueueMessage(string newMessage)
+        {
+            if (message == null)
+            {
+                message = newMessage;
+                WriteDisplays();
+                timer = duration;
+            }
+            else
+            {
+                messages.Enqueue(newMessage);
+            }
+        }
 
         private static void _Update()
         {
             if (message == null)
                 return;
 
-            if (message.Duration < 0)
+            if (timer < 0)
             {
                 if (messages.Count > 0)
                 {
                     message = messages.Dequeue();
                     WriteDisplays();
+                    timer = duration;
                 }
                 else
                 {
@@ -33,20 +60,7 @@ namespace Core.Messenger
             }
             else
             {
-                message.Duration -= Time.deltaTime;
-            }
-        }
-
-        public static void QueueMessage(GlobalMessage globalMessage)
-        {
-            if (message == null)
-            {
-                message = globalMessage;
-                WriteDisplays();
-            }
-            else
-            {
-                messages.Enqueue(globalMessage);
+                timer -= Time.deltaTime;
             }
         }
 
@@ -65,13 +79,10 @@ namespace Core.Messenger
 
             foreach (var text in texts)
             {
-                text.text = message.Message;
+                text.text = message;
             }
         }
 
-        #endregion
-
-        #region Members
 
         private int id;
         [SerializeField] private TextMeshProUGUI text = null;
@@ -88,7 +99,5 @@ namespace Core.Messenger
             if (id == 0)
                 _Update();
         }
-
-        #endregion
     }
 }

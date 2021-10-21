@@ -30,7 +30,7 @@ namespace Core.Global
 
         private void UpdateDisplay()
         {
-            text.text = $"{prestring}{variable}{poststring}";
+            text.text = $"{prestring} {variable} {poststring}";
         }
     }
 }
