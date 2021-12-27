@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Core.Global
 {
     /// <summary>
-    /// Forced variable "Value to be constrained
+    /// Forced variable "Value" to be constrained
     /// </summary>
     /// <typeparam name="T">T must be a number (e.g. int, double)</typeparam>
     public abstract class ClampNumber<T> : GlobalVariable<T> where T : struct
