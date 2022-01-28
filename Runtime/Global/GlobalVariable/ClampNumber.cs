@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     /// <summary>
     /// Forced variable "Value" to be constrained

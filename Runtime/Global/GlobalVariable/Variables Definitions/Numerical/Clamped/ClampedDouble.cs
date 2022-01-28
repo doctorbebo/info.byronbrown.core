@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     [CreateAssetMenu(fileName = "NewConstrainedDouble", menuName = "Global/Variables/Clamped/Double")]
     public sealed class ClampedDouble : ClampNumber<double>

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     [CreateAssetMenu(fileName = "NewConstrainedFloat", menuName = "Global/Variables/Clamped/Float")]
     public sealed class ClampedFloat : ClampNumber<float>

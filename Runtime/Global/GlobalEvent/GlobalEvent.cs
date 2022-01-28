@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     [CreateAssetMenu(fileName = "NewGlobalEvent", menuName = "Global/Event")]
     public class GlobalEvent : ScriptableObject

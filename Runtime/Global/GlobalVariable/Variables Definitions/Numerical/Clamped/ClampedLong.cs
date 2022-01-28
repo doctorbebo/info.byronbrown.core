@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     [CreateAssetMenu(fileName = "NewConstrainedLong", menuName = "Global/Variables/Clamped/Long")]
     public sealed class ClampedLong : ClampNumber<long>

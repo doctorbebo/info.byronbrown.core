@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Core.Messenger
+namespace BeboTools.Messenger
 {
     public static class Extensions
     {

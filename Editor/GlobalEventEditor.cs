@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
-using Core.Global;
+using BeboTools.Global;
 
-namespace Core.Editor
+namespace BeboTools.Editor
 {
     [CustomEditor(typeof(GlobalEvent))]
     public class GlobalEventEditor : UnityEditor.Editor

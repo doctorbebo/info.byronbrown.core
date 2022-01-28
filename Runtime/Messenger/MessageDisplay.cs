@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Core.Messenger
+namespace BeboTools.Messenger
 {
     public sealed class MessageDisplay : MonoBehaviour
     {

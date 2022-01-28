@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Core
+namespace BeboTools
 {
     public static class Extensions
     {

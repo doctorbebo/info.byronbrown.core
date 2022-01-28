@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     public class GlobalVariableUIComponent: MonoBehaviour
     {

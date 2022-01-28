@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     public abstract class GlobalVariable : ScriptableObject
     {

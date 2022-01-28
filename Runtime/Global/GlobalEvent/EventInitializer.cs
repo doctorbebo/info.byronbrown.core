@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Core.Global
+namespace BeboTools.Global
 {
     public class EventInitializer : MonoBehaviour
     {
