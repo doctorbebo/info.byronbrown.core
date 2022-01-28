@@ -1,8 +1,7 @@
 {
-    "name": "Editor",
-    "rootNamespace": "Core.Editor",
+    "name": "byronbrown.bebotools.Editor",
     "references": [
-        "GUID:650358482d2944bec9d9e4cc09b4fe2d"
+        "GUID:76430e6118031421e9c3779642ddf80b"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
