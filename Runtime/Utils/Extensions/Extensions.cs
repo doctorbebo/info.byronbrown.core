@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
 
 namespace BeboTools.Utils
 {
@@ -26,6 +26,38 @@ namespace BeboTools.Utils
         {
             currentIndex--;
             return currentIndex < 0 ? list.Count - 1 : currentIndex;
+        }
+
+
+        /// <summary>
+        /// Unity friendly null check
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static bool IsNull(this UnityEngine.Object obj)
+        {
+            return (obj == null || obj.Equals(null));
+        }
+
+        /// <summary>
+        /// Unity friendly null check
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static bool IsNull(this object obj)
+        {
+            return (obj == null || obj.Equals(null));
+        }
+
+
+        /// <summary>
+        /// Returns transform position with y set to 0
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <returns></returns>
+        public static Vector3 FloorPosition(this Transform tran)
+        {
+            return new Vector3(tran.position.x, 0, tran.position.z);
         }
     }
 }
