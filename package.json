@@ -1,6 +1,6 @@
 {
     "name": "info.byronbrown.bebotools",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "displayName": "BeboTools",
     "description": "core software probably used in almost every project\n\n-Global Variables\n-Player Messages\n-Global Events\n-Other generic tools",
     "unity": "2019.1",
