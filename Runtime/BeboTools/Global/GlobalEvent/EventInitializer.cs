@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+// ReSharper disable InconsistentNaming
 
 namespace BeboTools.Global
 {

@@ -5,7 +5,7 @@ namespace BeboTools.Global
 {
     public class GlobalVariableUIComponent: MonoBehaviour
     {
-        [SerializeField] TextMeshProUGUI text;
+        [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private GlobalVariable variable;
         [SerializeField] private string prestring;
         [SerializeField] private string poststring;
