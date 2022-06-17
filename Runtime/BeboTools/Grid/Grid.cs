@@ -1,24 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using BeboTools.Utils;
+using UnityEngine;
 
 namespace BeboTools.Grid
 {
     public class Grid : IEnumerable<Cell>
     {
-        public Cell this[Coordinates coordinates]
-        {
-            get => this[coordinates.x, coordinates.y];
-            set => this[coordinates.x, coordinates.y] = value;
-        }
+        public Cell this[Coordinates coordinates] => this[coordinates.x, coordinates.y];
         
-        public Cell this[int x, int y]
-        {
-            get => cellArray[x, y];
-            set => cellArray[x, y] = value;
-        }
-        
+        public Cell this[int x, int y] => cellArray[x, y];
+
         public int Width => cellArray.GetLength(0);
         public int Height => cellArray.GetLength(1);
         
@@ -52,30 +44,25 @@ namespace BeboTools.Grid
         }
 
         /// <summary>
-        /// Returns an IEnumerable of cells from start cell to end cell. Start and end cells are included
+        /// Returns an IEnumerable of cells from start cell to end cell (inclusive).
         /// </summary>
-        /// <param name="startCell"></param>
-        /// <param name="endCell"></param>
+        /// <param name="startCoor"></param>
+        /// <param name="endCoor"></param>
         /// <returns></returns>
-        public IEnumerable<Cell> CellArea(Cell startCell, Cell endCell)
+        public IEnumerable<Cell> CellArea(Coordinates startCoor, Coordinates endCoor)
         {
-            if (startCell.Grid != this || endCell.Grid != this)
-                yield break;
-
-
             Coordinates start = new Coordinates
             (
-                startCell.Coordinates.x < endCell.Coordinates.x ? startCell.Coordinates.x : endCell.Coordinates.x,
-                startCell.Coordinates.y < endCell.Coordinates.y ? startCell.Coordinates.y : endCell.Coordinates.y
+                startCoor.x < endCoor.x ? startCoor.x : endCoor.x,
+                startCoor.y < endCoor.y ? startCoor.y : endCoor.y
             );
 
             Coordinates end = new Coordinates
             (
-                startCell.Coordinates.x > endCell.Coordinates.x ? startCell.Coordinates.x : endCell.Coordinates.x,
-                startCell.Coordinates.y > endCell.Coordinates.y ? startCell.Coordinates.y : endCell.Coordinates.y
+                startCoor.x > endCoor.x ? startCoor.x : endCoor.x,
+                startCoor.y > endCoor.y ? startCoor.y : endCoor.y
             );
             
-
             for (int y = start.y; y <= end.y; y++)
             {
                 for (int x = start.x; x <= end.x; x++)
@@ -142,7 +129,7 @@ namespace BeboTools.Grid
         }
 
         /// <summary>
-        /// Fills the grid with Cell instances
+        /// Iterates through the grid filling each cell with a cell object if cell is null
         /// </summary>
         private void FillGrid()
         {
@@ -156,6 +143,10 @@ namespace BeboTools.Grid
             }
         }
 
+        /// <summary>
+        /// Enumerates through each cell of the grid
+        /// </summary>
+        /// <returns></returns>
         private IEnumerable<Cell> IterateGrid()
         {
             for (int y = 0; y < Height; y++)
