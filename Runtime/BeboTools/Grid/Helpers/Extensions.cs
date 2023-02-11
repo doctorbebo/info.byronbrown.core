@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace BeboTools.Grid.Helpers
 {
-    public static class Grid
+    public static class Extensions
     {
         /// <summary>
         /// Determines if the x and y are valid grid coordinates
