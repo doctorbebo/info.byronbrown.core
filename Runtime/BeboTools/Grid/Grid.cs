@@ -20,6 +20,7 @@ namespace BeboTools.Grid
 
         public int Width => CellArray.GetLength(0);
         public int Height => CellArray.GetLength(1);
+        public int CellCount => CellArray.Length;
         
         internal Cell [,] CellArray;
 

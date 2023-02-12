@@ -70,6 +70,32 @@ namespace BeboTools.Grid.Helpers
             grid.AssignRelativeCells();
         }
         
+        /// <summary>
+        /// Gets the entire row of a grid
+        /// <param name="rowIndex">index of the row which should be return</param> 
+        /// <returns>IEnumerable of cells</returns>
+        /// </summary>
+        public static IEnumerable<Cell> GetRow(this GridClass grid, int rowIndex)
+        {
+            for (int x = 0; x < grid.Width; x++)
+            {
+                yield return grid[x, rowIndex];
+            }
+        }
+        
+        /// <summary>
+        /// Gets the entire column of a grid
+        /// <param name="columnIndex">index of the column which should be return</param> 
+        /// <returns>IEnumerable of cells</returns>
+        /// </summary>
+        public static IEnumerable<Cell> GetColumn(this GridClass grid, int columnIndex)
+        {
+            for (int y = 0; y < grid.Height; y++)
+            {
+                yield return grid[columnIndex, y];
+            }
+        }
+        
                 
         /// <summary>
         /// Assigns relative cells for the grid.
