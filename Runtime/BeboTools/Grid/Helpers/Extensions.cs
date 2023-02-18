@@ -1,6 +1,7 @@
 ﻿using GridClass = BeboTools.Grid.Grid;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine;
 
 namespace BeboTools.Grid.Helpers
 {
@@ -9,6 +10,7 @@ namespace BeboTools.Grid.Helpers
         /// <summary>
         /// Determines if the x and y are valid grid coordinates
         /// </summary>
+        /// <param name="grid"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
@@ -24,15 +26,15 @@ namespace BeboTools.Grid.Helpers
         /// <param name="startCoor"></param>
         /// <param name="endCoor"></param>
         /// <returns></returns>
-        public static IEnumerable<Cell> CellArea(this GridClass grid, Coordinates startCoor, Coordinates endCoor)
+        public static IEnumerable<Cell> CellArea(this GridClass grid, Vector2Int startCoor, Vector2Int endCoor)
         {
-            Coordinates start = new Coordinates
+            Vector2Int start = new Vector2Int
             (
                 startCoor.x < endCoor.x ? startCoor.x : endCoor.x,
                 startCoor.y < endCoor.y ? startCoor.y : endCoor.y
             );
 
-            Coordinates end = new Coordinates
+            Vector2Int end = new Vector2Int
             (
                 startCoor.x > endCoor.x ? startCoor.x : endCoor.x,
                 startCoor.y > endCoor.y ? startCoor.y : endCoor.y
@@ -63,11 +65,11 @@ namespace BeboTools.Grid.Helpers
 
             foreach (Cell cell in oldCellArray)
             {
-                grid[cell.Coordinates] = cell;
+                if (cell != null)
+                {
+                    grid[cell.Position] = cell;
+                }
             }
-            
-            grid.FillGrid();
-            grid.AssignRelativeCells();
         }
         
         /// <summary>
@@ -95,42 +97,5 @@ namespace BeboTools.Grid.Helpers
                 yield return grid[columnIndex, y];
             }
         }
-        
-                
-        /// <summary>
-        /// Assigns relative cells for the grid.
-        /// </summary>
-        internal static void AssignRelativeCells(this GridClass grid)
-        {
-            for (int x = 0; x < grid.Width; x++)
-            {
-                for (int y = 0; y < grid.Height; y++)
-                {
-                    Cell current = grid[x, y];
-                    current.NorthCell = grid.ValidCoordinates(x, y + 1) ? grid[x, y + 1] : null; 
-                    current.EastCell = grid.ValidCoordinates(x + 1, y) ? grid[x + 1, y] : null;
-                    current.SouthCell = grid.ValidCoordinates(x, y - 1) ? grid[x, y - 1] : null; 
-                    current.WestCell = grid.ValidCoordinates(x - 1, y) ? grid[x - 1, y] : null;
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Iterates through the grid filling each cell with a cell object if cell is null
-        /// </summary>
-        internal static void FillGrid(this GridClass grid)
-        {
-            for (int x = 0; x < grid.Width; x++)
-            {
-                for (int y = 0; y < grid.Height; y++)
-                {
-                    if (grid[x, y] == null)
-                    {
-                        grid[x, y] = new Cell(grid, x, y);
-                    }
-                }
-            }
-        }
     }
-    
 }

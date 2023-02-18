@@ -4,7 +4,9 @@ using System.Linq;
 using NUnit.Framework;
 using BeboTools.Grid;
 using BeboTools.Grid.Helpers;
+using UnityEngine;
 using UnityEngine.TestTools;
+using Grid = BeboTools.Grid.Grid;
 
 namespace Tests.Runtime
 {
@@ -34,8 +36,8 @@ namespace Tests.Runtime
             };
             
 
-            Coordinates a = new Coordinates(start, start);
-            Coordinates b = new Coordinates(end, end);
+            Vector2Int a = new Vector2Int(start, start);
+            Vector2Int b = new Vector2Int(end, end);
             List<Cell> actualCellsells = grid.CellArea(a, b).ToList();
 
             Assert.AreEqual(expectedCells.Count, actualCellsells.Count);
@@ -68,7 +70,7 @@ namespace Tests.Runtime
         {
             Grid grid = CreateDefaultGrid();
             List<Cell> expectedCells = grid.ToList();
-            (Coordinates start, Coordinates end) coor = (new Coordinates(0, 0), new Coordinates(StartWidth -1, StartHeight -1));
+            (Vector2Int start, Vector2Int end) coor = (new Vector2Int(0, 0), new Vector2Int(StartWidth -1, StartHeight -1));
             
 
             const int widthIncrease = 1;

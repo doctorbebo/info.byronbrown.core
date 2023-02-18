@@ -4,7 +4,9 @@ using System.Linq;
 using NUnit.Framework;
 using BeboTools.Grid;
 using BeboTools.Grid.Helpers;
+using UnityEngine;
 using UnityEngine.TestTools;
+using Grid = BeboTools.Grid.Grid;
 
 namespace Tests
 {
@@ -34,7 +36,7 @@ namespace Tests
         public void Cell_Maintains_Instance_Object()
         {
             Grid grid = CreateDefaultGrid(); 
-            Coordinates coordinates = new Coordinates(0, 0);
+            Vector2Int coordinates = new Vector2Int(0, 0);
             const string expectedString = "Test";
             TestObject expectedObject = new TestObject(expectedString);
             

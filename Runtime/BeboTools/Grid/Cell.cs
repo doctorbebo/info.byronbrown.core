@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BeboTools.Grid
 {
@@ -7,7 +8,7 @@ namespace BeboTools.Grid
     {
         public override string ToString()
         {
-            return $"x {Coordinates.x}, y {Coordinates.y}";
+            return $"x {Position.x}, y {Position.y}";
         }
 
         internal readonly Dictionary<Type, object> CellObjects = new Dictionary<Type, object>();
@@ -20,30 +21,30 @@ namespace BeboTools.Grid
         /// <summary>
         /// X and Y Coordinates of this Cell
         /// </summary>
-        public Coordinates Coordinates { get; }
-        
+        public Vector2Int Position { get; }
+
         /// <summary>
         /// Next Cell Up or North relative to this cell
         /// </summary>
-        public Cell NorthCell { get; internal set; }
+        public Cell NorthCell => Grid[Position.x, Position.y + 1];
         /// <summary>
         /// Next Cell Right or East relative to this cell
         /// </summary>
-        public Cell EastCell { get; internal set; }
+        public Cell EastCell => Grid[Position.x + 1, Position.y];
         /// <summary>
         /// Next Cell Down or South relative to this cell
         /// </summary>
-        public Cell SouthCell { get; internal set; }
+        public Cell SouthCell => Grid[Position.x, Position.y - 1];
         /// <summary>
         /// Next Cell Left or West relative to this cell
         /// </summary>
-        public Cell WestCell { get; internal set; }
+        public Cell WestCell => Grid[Position.x - 1, Position.y];
 
 
-        internal Cell(Grid grid, int x, int y) : this(grid, new Coordinates(x, y)){ }
-        internal Cell(Grid grid, Coordinates coordinates)
+        internal Cell(Grid grid, int x, int y) : this(grid, new Vector2Int(x, y)){ }
+        internal Cell(Grid grid, Vector2Int position)
         {
-            Coordinates = coordinates;
+            Position = position;
             Grid = grid;
         }
         

@@ -1,20 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using BeboTools.Grid.Helpers;
+using UnityEngine;
 
 namespace BeboTools.Grid
 {
     public class Grid : IEnumerable<Cell>
     {
-        public Cell this[Coordinates coordinates]
+        public Cell this[Vector2Int v2]
         {
-            get  => this[coordinates.x, coordinates.y];
-            internal set => this[coordinates.x, coordinates.y] = value;
+            get => this[v2.x, v2.y];
+            internal set => this[v2.x, v2.y] = value;
         }
 
         public Cell this[int x, int y]
         {
-            get => CellArray[x, y];
+            get
+            {
+                if (CellArray[x, y] == null && x < Width && y < Height)
+                {
+                    CellArray[x, y] = new Cell(this, x, y);
+                }
+
+                return CellArray[x, y];
+            }
             internal set => CellArray[x, y] = value;
         }
 
@@ -27,8 +36,6 @@ namespace BeboTools.Grid
         public Grid(int width, int height)
         {
             CellArray = new Cell[width, height];
-            this.FillGrid();
-            this.AssignRelativeCells();
         }
 
         public IEnumerator<Cell> GetEnumerator()
@@ -37,7 +44,7 @@ namespace BeboTools.Grid
             {
                 for (int x = 0; x < Width; x++)
                 {
-                    yield return CellArray[x, y];
+                    yield return this[x, y];
                 }
             }
         }
@@ -50,6 +57,15 @@ namespace BeboTools.Grid
         public override string ToString()
         {
             return $"Grid: Width: {Width} Height: {Height}";
+        }
+
+        private Cell GetCell(int x, int y)
+        {
+            if (x < Width && y < Height)
+            {
+                return CellArray[x, y] = new Cell(this, x, y);
+            }
+            return null;
         }
     }
 }
