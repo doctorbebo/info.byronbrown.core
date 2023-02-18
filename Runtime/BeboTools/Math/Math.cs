@@ -112,5 +112,10 @@ namespace BeboTools
                 (int) vector3.z
             );
         }
+
+        public static bool AllVectorsLessThan(this Vector3 vector3, float value)
+        {
+            return vector3.x < value && vector3.y < value && vector3.z < value;
+        }
     }
 }
