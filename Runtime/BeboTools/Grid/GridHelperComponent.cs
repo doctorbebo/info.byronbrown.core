@@ -35,10 +35,10 @@ namespace BeboTools.Grid
         private void Start()
         {
             transform.localScale = Vector3.one;
-            cornerPost1 = grid.OriginPoint;
-            cornerPost2 = new Vector3(grid.OriginPoint.x, 0, grid.OriginPoint.z + grid.Length * grid.CellSize);
+            cornerPost1 = grid.StartPoint;
+            cornerPost2 = new Vector3(grid.StartPoint.x, 0, grid.StartPoint.z + grid.Length * grid.CellSize);
             cornerPost3 = grid.EndPoint;
-            cornerPost4 = new Vector3(grid.OriginPoint.x + grid.Width * grid.CellSize, 0, grid.OriginPoint.z);
+            cornerPost4 = new Vector3(grid.StartPoint.x + grid.Width * grid.CellSize, 0, grid.StartPoint.z);
         }
 
         private void Update()
@@ -69,7 +69,7 @@ namespace BeboTools.Grid
             if (drawGridBoundary)
             {
                 Gizmos.color = Color.red;
-                Gizmos.DrawWireCube(Vector3.Lerp(grid.EndPoint, grid.GridPos, 0.5f), new Vector3(grid.Width * grid.CellSize, 0, grid.Length * grid.CellSize));
+                Gizmos.DrawWireCube(Vector3.Lerp(grid.EndPoint, grid.StartPoint, 0.5f), new Vector3(grid.Width * grid.CellSize, 0, grid.Length * grid.CellSize));
             }
             
             CellArea area = grid.GetCellArea(MousePosition.Actual, debugPlacingObjectSize);

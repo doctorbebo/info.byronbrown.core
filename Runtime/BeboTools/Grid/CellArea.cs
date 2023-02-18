@@ -19,13 +19,13 @@ namespace BeboTools.Grid
             Cells = cells.ToList();
 
             Cell orginCell = Cells[0];
-            float x = orginCell.Position.x * grid.CellSize + grid.GridPos.x;
-            float z = orginCell.Position.y * grid.CellSize + grid.GridPos.z;
+            float x = orginCell.Position.x * grid.CellSize + grid.StartPoint.x;
+            float z = orginCell.Position.y * grid.CellSize + grid.StartPoint.z;
             WorldOriginPoint = new Vector3(x, 0, z);
                 
             Cell endCell = Cells[Cells.Count -1];
-            x = endCell.Position.x * grid.CellSize + grid.GridPos.x + grid.CellSize;
-            z = endCell.Position.y * grid.CellSize + grid.GridPos.z + grid.CellSize;
+            x = endCell.Position.x * grid.CellSize + grid.StartPoint.x + grid.CellSize;
+            z = endCell.Position.y * grid.CellSize + grid.StartPoint.z + grid.CellSize;
             WorldEndPoint = new Vector3(x, 0, z);
 
             x = (endCell.Position.x * grid.CellSize + grid.CellSize) - (orginCell.Position.x * grid.CellSize);
