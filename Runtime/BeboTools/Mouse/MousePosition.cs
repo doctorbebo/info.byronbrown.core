@@ -10,7 +10,7 @@ namespace BeboTools
     /// </summary>
     public static class MousePosition
     {
-        public static int RoundingFactor { get; set; }
+        public static float RoundingFactor { get; set; }
         
         private static readonly Camera camera;
         private static Plane plane;

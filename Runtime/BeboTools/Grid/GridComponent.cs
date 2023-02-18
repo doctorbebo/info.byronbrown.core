@@ -13,7 +13,7 @@ namespace BeboTools.Grid
         
         
         [SerializeField] private Transform gridPos;
-        [SerializeField] private int cellSize = 1;
+        [SerializeField] private float cellSize = 1;
         [SerializeField] private int width = 1;
         [SerializeField] private int length = 1;
 
@@ -44,13 +44,14 @@ namespace BeboTools.Grid
             if(!IsInsideGrid(pos))
                 return null;
 
+            size = size.RoundUp(cellSize);
             Cell originCell = GetCell(pos - size / 2f + Vector3.one * (cellSize / 2f));
             Cell endCell = GetCell(pos + size / 2f - Vector3.one * (cellSize / 2f));
 
             if (originCell == null || endCell == null)
                 return null;
 
-            return new CellArea(grid.CellArea(originCell.Coordinates, endCell.Coordinates), this);
+            return new CellArea(grid.CellArea(originCell.Position, endCell.Position), this);
         }
 
         public bool IsInsideGrid(Vector3 pos)
@@ -73,17 +74,17 @@ namespace BeboTools.Grid
                 Cells = cells.ToList();
 
                 Cell orginCell = Cells[0];
-                float x = orginCell.Coordinates.x * grid.cellSize + grid.gridPos.position.x;
-                float z = orginCell.Coordinates.y * grid.cellSize + grid.gridPos.position.z;
+                float x = orginCell.Position.x * grid.cellSize + grid.gridPos.position.x;
+                float z = orginCell.Position.y * grid.cellSize + grid.gridPos.position.z;
                 WorldOriginPoint = new Vector3(x, 0, z);
                 
                 Cell endCell = Cells[Cells.Count -1];
-                x = endCell.Coordinates.x * grid.cellSize + grid.gridPos.position.x + grid.cellSize;
-                z = endCell.Coordinates.y * grid.cellSize + grid.gridPos.position.z + grid.cellSize;
+                x = endCell.Position.x * grid.cellSize + grid.gridPos.position.x + grid.cellSize;
+                z = endCell.Position.y * grid.cellSize + grid.gridPos.position.z + grid.cellSize;
                 WorldEndPoint = new Vector3(x, 0, z);
 
-                x = (endCell.Coordinates.x * grid.cellSize + grid.cellSize) - (orginCell.Coordinates.x * grid.cellSize);
-                z = (endCell.Coordinates.y * grid.cellSize + grid.cellSize) - (orginCell.Coordinates.y * grid.cellSize);
+                x = (endCell.Position.x * grid.cellSize + grid.cellSize) - (orginCell.Position.x * grid.cellSize);
+                z = (endCell.Position.y * grid.cellSize + grid.cellSize) - (orginCell.Position.y * grid.cellSize);
                 WorldSize = new Vector3(x, 0, z);
 
                 WorldMiddlePoint = Vector3.Lerp(WorldOriginPoint, WorldEndPoint, 0.5f);

@@ -13,9 +13,20 @@ namespace BeboTools
         /// <returns></returns>
         public static Vector3 Round(this Vector3 vector3, int roundingFactor = 1)
         {
-            if (roundingFactor < 1)
+            return Round(vector3, (float) roundingFactor);
+        }
+        
+        /// <summary>
+        /// Returns a new Vector3 rounded to the closest multiple of the rounding factor.
+        /// </summary>
+        /// <param name="vector3"></param>
+        /// <param name="roundingFactor"></param>
+        /// <returns></returns>
+        public static Vector3 Round(this Vector3 vector3, float roundingFactor = 1)
+        {
+            if (roundingFactor < float.Epsilon)
             {
-                roundingFactor = 1;
+                return Vector3.zero;
             }
             
             return new Vector3
@@ -34,9 +45,20 @@ namespace BeboTools
         /// <returns></returns>
         public static Vector3 RoundDown(this Vector3 vector3, int roundingFactor = 1)
         {
-            if (roundingFactor < 1)
+            return RoundDown(vector3, (float)roundingFactor);
+        }
+        
+        /// <summary>
+        /// Returns a new Vector3 rounded down to the closest multiple of the rounding factor.
+        /// </summary>
+        /// <param name="vector3"></param>
+        /// <param name="roundingFactor"></param>
+        /// <returns></returns>
+        public static Vector3 RoundDown(this Vector3 vector3, float roundingFactor = 1)
+        {
+            if (roundingFactor < float.Epsilon)
             {
-                roundingFactor = 1;
+                return Vector3.zero;
             }
             
             return new Vector3
@@ -55,9 +77,20 @@ namespace BeboTools
         /// <returns></returns>
         public static Vector3 RoundUp(this Vector3 vector3, int roundingFactor = 1)
         {
-            if (roundingFactor < 1)
+            return RoundUp(vector3, (float) roundingFactor);
+        }
+        
+        /// <summary>
+        /// Returns a new Vector3 rounded up to the closest multiple of the rounding factor.
+        /// </summary>
+        /// <param name="vector3"></param>
+        /// <param name="roundingFactor"></param>
+        /// <returns></returns>
+        public static Vector3 RoundUp(this Vector3 vector3, float roundingFactor = 1)
+        {
+            if (roundingFactor < float.Epsilon)
             {
-                roundingFactor = 1;
+                return Vector3.zero;
             }
             
             return new Vector3
