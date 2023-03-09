@@ -7,13 +7,19 @@ namespace BeboTools.CameraUtil
     {
         [Header("Main Attributes")]
         [SerializeField] private Transform cameraTransform;
+        
+        [Header("Movement Attributes")]
         [SerializeField] private float normalSpeed = 0.5f;
         [SerializeField] private float fastSpeed = 3f;
         [SerializeField] private float movementTime = 5f;
+        
+        [Header("Rotation Attributes")]
         [SerializeField] private float rotationAmount = 1f;
         [SerializeField] private Vector3 zoomAmount = new Vector3(0, -0.05f, 0.05f);
+        [SerializeField] private bool invertKeybaordRotation = false;
+        [SerializeField] private bool invertMousedRotation = false;
 
-        [Header("Clamp Position")] 
+        [Header("Clamp Movement")] 
         [SerializeField] private float minimumXPosition = -10f;
         [SerializeField] private float minimumZPosition = -10f;
         [SerializeField] private float maximumXPosition = 10f;
@@ -77,12 +83,12 @@ namespace BeboTools.CameraUtil
 
             if (Keyboard.current.qKey.isPressed)
             {
-                newRotation *= Quaternion.Euler(Vector3.up * rotationAmount);
+                newRotation *= Quaternion.Euler(Vector3.up * (invertKeybaordRotation ? -rotationAmount : rotationAmount));
             }
             
             if (Keyboard.current.eKey.isPressed)
             {
-                newRotation *= Quaternion.Euler(Vector3.up * -rotationAmount);
+                newRotation *= Quaternion.Euler(Vector3.up * (invertKeybaordRotation ? rotationAmount : -rotationAmount));
             }
             
             if (Mouse.current.scroll.y.ReadValue() != 0)
@@ -100,7 +106,7 @@ namespace BeboTools.CameraUtil
                 rotateCurrentPosition = Mouse.current.position.ReadValue();
                 Vector3 difference = rotateStartPosition - rotateCurrentPosition;
                 rotateStartPosition = rotateCurrentPosition;
-                newRotation *= Quaternion.Euler(Vector3.up * (-difference.x/5f));
+                newRotation *= Quaternion.Euler(Vector3.up * ((invertMousedRotation ? difference.x : -difference.x)/5f));
             }
 
             newPosition = new Vector3(Mathf.Clamp(newPosition.x, minimumXPosition, maximumXPosition), newPosition.y, Mathf.Clamp(newPosition.z, minimumZPosition, maximumZPosition));
