@@ -11,7 +11,7 @@ namespace BeboTools.CameraUtil
         [SerializeField] private float fastSpeed = 3f;
         [SerializeField] private float movementTime = 5f;
         [SerializeField] private float rotationAmount = 1f;
-        [SerializeField] private Vector3 zoomAmount = new Vector3(0, 0.05f, 0.05f);
+        [SerializeField] private Vector3 zoomAmount = new Vector3(0, -0.05f, 0.05f);
 
         [Header("Clamp Position")] 
         [SerializeField] private float minimumXPosition = -10f;
