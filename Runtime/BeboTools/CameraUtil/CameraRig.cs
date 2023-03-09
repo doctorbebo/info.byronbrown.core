@@ -7,25 +7,24 @@ namespace BeboTools.CameraUtil
     {
         [Header("Main Attributes")]
         [SerializeField] private Transform cameraTransform;
-        [SerializeField] private float normalSpeed;
-        [SerializeField] private float fastSpeed;
-        [SerializeField] private float movementTime;
-        [SerializeField] private float rotationAmount;
-        [SerializeField] private Vector3 zoomAmount;
+        [SerializeField] private float normalSpeed = 0.5f;
+        [SerializeField] private float fastSpeed = 3f;
+        [SerializeField] private float movementTime = 5f;
+        [SerializeField] private float rotationAmount = 1f;
+        [SerializeField] private Vector3 zoomAmount = new Vector3(0, 0.05f, 0.05f);
 
         [Header("Clamp Position")] 
-        [SerializeField] private float minimumXPosition;
-        [SerializeField] private float minimumZPosition;
-        [SerializeField] private float maximumXPosition;
-        [SerializeField] private float maximumZPosition;
+        [SerializeField] private float minimumXPosition = -10f;
+        [SerializeField] private float minimumZPosition = -10f;
+        [SerializeField] private float maximumXPosition = 10f;
+        [SerializeField] private float maximumZPosition = 10f;
         
         [Header("Clamp Zoom")] 
-        [SerializeField] private float minimumZoomAmount;
-        [SerializeField] private float maximumZoomAmount;
+        [SerializeField] private float minimumZoomAmount = 5f;
+        [SerializeField] private float maximumZoomAmount = 30f;
         
         
         [Header("Debug Values")]
-
         [SerializeField] private Vector3 newPosition;
         [SerializeField] private Quaternion newRotation;
         [SerializeField] private Vector3 newZoom;
