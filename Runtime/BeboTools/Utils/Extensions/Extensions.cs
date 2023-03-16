@@ -34,6 +34,7 @@ namespace BeboTools.Utils
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [Obsolete("Use if(Unity.Object) instead of this method")]
         public static bool IsNull(this UnityEngine.Object obj)
         {
             return (obj == null || obj.Equals(null));
@@ -44,11 +45,34 @@ namespace BeboTools.Utils
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [Obsolete("Use if(Unity.Object) instead of this method")]
         public static bool IsNull(this object obj)
         {
             return (obj == null || obj.Equals(null));
         }
 
+        /// <summary>
+        /// returns a new Vector3 with the value of x set to given value
+        /// </summary>
+        /// <param name="v">Vector3</param>
+        /// <param name="x"></param>
+        /// <returns>Vector3</returns>
+        public static Vector3 SetX(this Vector3 v, float x) => new Vector3(x, v.y, v.z);
+        
+        /// <summary>
+        /// returns a new Vector3 with the value of y set to given value
+        /// </summary>
+        /// <param name="v">Vector3</param>
+        /// <param name="y"></param>
+        /// <returns>Vector3</returns>
+        public static Vector3 SetY(this Vector3 v, float y) => new Vector3(v.x, y, v.z);
+        /// <summary>
+        /// returns a new Vector3 with the value of z set to given value
+        /// </summary>
+        /// <param name="v">Vector3</param>
+        /// <param name="y"></param>
+        /// <returns>Vector3</returns>
+        public static Vector3 SetZ(this Vector3 v, float z) => new Vector3(v.x, v.y, z);
 
         /// <summary>
         /// Returns transform position with y set to 0

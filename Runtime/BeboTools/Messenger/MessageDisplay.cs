@@ -25,6 +25,8 @@ namespace BeboTools.Messenger
         private static List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
         private static int count = 0;
 
+        public static void NewMessage(string newMessage) => QueueMessage(newMessage);
+        
         public static void QueueMessage(string newMessage)
         {
             if (message == null)

@@ -64,5 +64,13 @@ namespace BeboTools.Grid
             else
                 CellObjects[t.GetType()] = t;
         }
+
+        public void ClearObject<T>()
+        {
+            if (CellObjects.ContainsKey(typeof(T)))
+            {
+                CellObjects[typeof(T)] = default;
+            }
+        }
     }
 }
